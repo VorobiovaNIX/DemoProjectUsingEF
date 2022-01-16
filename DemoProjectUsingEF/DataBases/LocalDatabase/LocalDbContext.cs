@@ -1,7 +1,7 @@
 ﻿using DemoProjectUsingEF.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DemoProjectUsingEF.LocalDatabase
+namespace DemoProjectUsingEF.DataBases.LocalDatabase
 {
     public partial class LocalDbContext : DbContext
     { 

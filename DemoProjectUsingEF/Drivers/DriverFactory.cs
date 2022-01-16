@@ -41,33 +41,29 @@ namespace DemoProjectUsingEF.Drivers
 
         public IWebDriver InitRemoteDriver(string browser)
         {
-            var settings = ConfigurationLoader.Settings;
-            string hub = ConfigurationLoader.Settings.HubApplicationUrl;
-
             switch (browser)
             {
                 case "chrome":
-                    _driver = new RemoteWebDriver(new Uri(hub), options.getChromeOptions());
-                    _driver.Manage().Window.Maximize();
-                    return _driver;
+                    return RemoteWebDriverBuilder(options.getChromeOptions());
 
                 case "firefox":
-                    _driver = new RemoteWebDriver(new Uri(hub), options.getFirefoxOptions());
-                    _driver.Manage().Window.Maximize();
-                    return _driver;
+                    return RemoteWebDriverBuilder(options.getFirefoxOptions());
 
                 case "edge":
-                    _driver = new RemoteWebDriver(new Uri(hub), options.getEdgeOptions());
-                    _driver.Manage().Window.Maximize();
-                    return _driver;
+                    return RemoteWebDriverBuilder(options.getEdgeOptions());
 
                 default:
-                    _driver = new RemoteWebDriver(new Uri(hub), options.getChromeOptions());
-                    _driver.Manage().Window.Maximize();
-                    return _driver;
+                    return RemoteWebDriverBuilder(options.getChromeOptions());
             }
         }
-
+        private IWebDriver RemoteWebDriverBuilder(DriverOptions options)
+        {
+            var settings = ConfigurationLoader.Settings;
+            string hub = settings.HubApplicationUrl;
+            _driver = new RemoteWebDriver(new Uri(hub), options);
+            _driver.Manage().Window.Maximize();
+            return _driver;
+        }
 
     }
 }

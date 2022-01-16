@@ -1,5 +1,5 @@
 ﻿using BoDi;
-using DemoProjectUsingEF.LocalDatabase;
+using DemoProjectUsingEF.DataBases.LocalDatabase;
 using TechTalk.SpecFlow;
 
 namespace DemoProjectUsingEF.Steps
