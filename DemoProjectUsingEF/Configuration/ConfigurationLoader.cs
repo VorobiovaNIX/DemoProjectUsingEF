@@ -10,45 +10,16 @@ namespace DemoProjectUsingEF.Utils
     [Binding]
     public static class ConfigurationLoader
     {
-        public static readonly Lazy<IConfiguration> Config = new Lazy<IConfiguration>(() => new ConfigurationBuilder()
-            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-#if DEBUG
-            .AddJsonFile("appsettings.Development.json", optional: true, reloadOnChange: true)
-#endif
-            .Build());
 
-        private static ConnectionStringOptions connectionStrings;
-        private static UrlOptions urls;
+        private static readonly Lazy<IConfigurationRoot> _config = new Lazy<IConfigurationRoot>(() =>
+            new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .AddJsonFile("appsettings.Development.json", true)
+                .Build());
 
-        public static ConnectionStringOptions ConnectionString
-        {
-            get
-            {
-                if (connectionStrings is null)
-                {
-                    connectionStrings = new();
-                    Config.Value.GetSection("ConnectionStrings").Bind(connectionStrings);
-                }
+        public static string HubDbConnection => _config.Value.GetConnectionString("HubDbConnection");
+        public static string ImsDbConnection => _config.Value.GetConnectionString("ImsDbConnection");
+        public static ISettings Settings => _config.Value.GetSection("Settings").Get<Settings>();
 
-                return connectionStrings;
-            }
-        }
-
-        public static UrlOptions Urls
-        {
-            get
-            {
-                if (urls is null)
-                {
-                    urls = new();
-                    Config.Value.GetSection("Urls").Bind(urls);
-                }
-
-                return urls;
-            }
-        }
-
-        // public static ISettings Settings => Config.Value.GetSection(nameof(Settings)).Get<Settings>();
-        public static ISettings Settings => Config.Value.GetSection(nameof(Settings)).Get<Settings>();
     }
 }
