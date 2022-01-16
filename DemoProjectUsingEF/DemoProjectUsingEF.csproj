@@ -46,7 +46,6 @@
 		<None Update="appsettings.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-		<Folder Include="DataBases\ImsDatabase\" />
 		<Folder Include="Hooks\" />
 		<Folder Include="Utils\" />
 	</ItemGroup>
