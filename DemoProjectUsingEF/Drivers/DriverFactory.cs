@@ -42,7 +42,7 @@ namespace DemoProjectUsingEF.Drivers
         public IWebDriver InitRemoteDriver(string browser)
         {
             var settings = ConfigurationLoader.Settings;
-            string hub = settings.HubApplicationUrl;
+            string hub = ConfigurationLoader.Settings.BaseUrl;
 
             switch (browser)
             {

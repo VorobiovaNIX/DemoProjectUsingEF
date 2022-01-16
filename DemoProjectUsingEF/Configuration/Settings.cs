@@ -1,17 +1,14 @@
-﻿using System;
+﻿using DemoProjectUsingEF.Configuration;
 using System.Collections.Generic;
-using System.Text;
 
-namespace DemoProjectUsingEF.Configuration
+namespace BluePrism.Tests.Configuration.Configuration
 {
     public class Settings : ISettings
     {
-        public Settings() { }
-        public string HubApplicationUrl { get; set; }
-        public string ImsApplicationUrl { get; set; }
+        public string BaseUrl { get; set; }
+
         public bool HeadlessMode { get; set; }
         public string Browser { get; set; }
         public List<User> HubUsers { get; set; }
-        public List<EnvironmentConnection> EnvironmentManagement { get; set; }
     }
 }
