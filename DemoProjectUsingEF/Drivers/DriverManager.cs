@@ -27,7 +27,7 @@ namespace DemoProjectUsingEF.Drivers
         }
 
         [BeforeTestRun]
-        public static void setEnvironment()
+        public static void SetEnvironment()
         {
             var settings = ConfigurationLoader.Settings;
             _browser = settings.Browser;
@@ -59,7 +59,7 @@ namespace DemoProjectUsingEF.Drivers
             _objectContainer.RegisterInstanceAs<IWebDriver>(_driver, "driver");
         }
 
-        public IWebDriver getDriver()
+        public IWebDriver GetDriver()
         {
             _driver = _objectContainer.Resolve<IWebDriver>("driver");
             return _driver;

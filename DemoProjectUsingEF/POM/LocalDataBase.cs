@@ -20,7 +20,7 @@ namespace DemoProjectUsingEF.POM
             _objectContainer = objectContainer;
             _driverManager = new DriverManager(_objectContainer);
            // waitHelper = new WaitHelper(_objectContainer);
-            _webDriver = _driverManager.getDriver();
+            _webDriver = _driverManager.GetDriver();
         }
 
 
