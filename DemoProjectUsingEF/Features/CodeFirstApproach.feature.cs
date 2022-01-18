@@ -73,16 +73,25 @@ namespace DemoProjectUsingEF.Features
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 3
+#line hidden
+#line 4
+ testRunner.Given("I clean up the Users table in the local DB", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add new user to the database")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
+        [NUnit.Framework.CategoryAttribute("case=1")]
         public virtual void AddNewUserToTheDatabase()
         {
             string[] tagsOfScenario = new string[] {
-                    "mytag"};
+                    "case=1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add new user to the database", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 4
+#line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -102,8 +111,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 5
+#line 3
+this.FeatureBackground();
+#line hidden
+#line 8
  testRunner.Given("I add \'Alena\' user where \'28\' is age and \'1\' is Id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 9
+ testRunner.And("I add \'Vasya\' user where \'23\' is age and \'2\' is Id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 using System.IO;
 using NUnit.Framework;
 using OpenQA.Selenium.Remote;
-using DemoProjectUsingEF.Utils;
+using DemoProjectUsingEF.Configuration;
 
 [assembly: Parallelizable(ParallelScope.Fixtures)]
 [assembly: LevelOfParallelism(1)]

@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using TechTalk.SpecFlow;
 
-namespace DemoProjectUsingEF.Utils
+namespace DemoProjectUsingEF.Configuration
 {
 
     [Binding]
