@@ -62,6 +62,12 @@ namespace DemoProjectUsingEF.Helpers
             return;
         }
 
+        public string GetPageUrl(bool isWaitNeeded = false, string waitingForURL = "")
+        {
+            if (isWaitNeeded) NavigateWait(waitingForURL);
+            return _webDriver.Url;
+        }
+
         public IWebElement GetTextWait(string locator)
         {
             IWebElement element = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.XPath(locator)));

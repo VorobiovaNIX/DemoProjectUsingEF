@@ -80,52 +80,51 @@ namespace BluePrism.Web.AutomatedUITests.POM
 
         public ImsLoginPage VerifyThatLogInPageIsOpened()
         {
-            Assert.That(() => _imsLoginPageMap.GetPageUrl().StartsWith($"{ConfigurationLoader.Settings.ImsApplicationUrl}/#/account/login"),
+            Assert.That(() => _waitHelper.GetPageUrl().StartsWith($"{ConfigurationLoader.Settings.ImsApplicationUrl}/#/account/login"),
                 Is.True.After(5).Seconds.PollEvery(100), "There is not IMS Log in page");
-            return this;
-        }
-
-        public ImsLoginPage VerifyListOfLanguages(List<String> expectedLanguages)
-        {
-            _imsLoginPageAssertions.AreEqual(expectedLanguages, _imsLoginPageMap.GetListOfTexts(languagesList), $"List of languages is not correct");
             return this;
         }
 
         public ImsLoginPage GoToHub()
         {
-            _imsLoginPageMap.ClickButton(hubButton);
+            IWebElement element = _waitHelper.ClickWait(hubButton);
+            element.FindElement(By.XPath(hubButton)).Click();
             return this;
         }
 
         public ImsLoginPage GoToInteract()
         {
-            _imsLoginPageMap.ClickButton(interactButton);
+            IWebElement element = _waitHelper.ClickWait(interactButton);
+            element.FindElement(By.XPath(interactButton)).Click();
             return this;
         }
 
 
         public ImsLoginPage LogOut()
         {
-            _imsLoginPageMap.ClickButton(logOut);
-            _imsLoginPageMap.GetElement(usernameInput);
+            IWebElement element = _waitHelper.ClickWait(logOut);
+            element.FindElement(By.XPath(logOut)).Click();
             return this;
         }
 
         public ImsLoginPage CloseNotification()
         {
-            _imsLoginPageMap.ClickButton(closeButtonNotification);
+            IWebElement element = _waitHelper.ClickWait(closeButtonNotification);
+            element.FindElement(By.XPath(closeButtonNotification)).Click();
             return this;
         }
         public ImsLoginPage VerifyThatWelcomePageIsOpened()
         {
-            _imsLoginPageAssertions.IsTrue(_imsLoginPageMap.GetPageUrl(true, $"{ConfigurationLoader.Settings.ImsApplicationUrl}/#/welcome").StartsWith($"{ConfigurationLoader.Settings.ImsApplicationUrl}/#/welcome"), "This is not IMS Welcome page");
+            Assert.IsTrue(_waitHelper.GetPageUrl(true, $"{ConfigurationLoader.Settings.ImsApplicationUrl}/#/welcome").
+                StartsWith($"{ConfigurationLoader.Settings.ImsApplicationUrl}/#/welcome"),
+                "This is not IMS Welcome page");
             return this;
         }
 
         public ImsLoginPage VerifyThatErrorMessageIsDisplayed(string message)
         {
-            _imsLoginPageAssertions.IsTrue(_imsLoginPageMap.GetElement(ErrorToast).Displayed, "Toaster notification is not displayed");
-            _imsLoginPageAssertions.AreEqual(message, _imsLoginPageMap.GetText(ErrorToast), "Error message is incorrect.");
+            Assert.IsTrue(_waitHelper.ClickWait(ErrorToast).Displayed, "Toaster notification is not displayed");
+            Assert.AreEqual(message, _waitHelper.ClickWait(ErrorToast).Text, "Error message is incorrect.");
             return this;
         }
     }

@@ -26,7 +26,7 @@ namespace DemoProjectUsingEF.Steps.Hub
         public void GivenIAmLoggedInToHUBInAsAdmin()
         {
             _imsLoginPage
-                .Navigate()
+                .NavigateToIMS()
                 .SendTextToUsernameInput(validUsername)
                 .SendTextToPasswordInput(validPassword)
                 .ClickLogIn()
@@ -40,7 +40,7 @@ namespace DemoProjectUsingEF.Steps.Hub
         public void WhenIAmLoggedInToHUBAsLoginAndPassword(string username, string password)
         {
             _imsLoginPage
-                .Navigate()
+                .NavigateToIMS()
                 .SendTextToUsernameInput(username)
                 .SendTextToPasswordInput(password)
                 .ClickLogIn()
