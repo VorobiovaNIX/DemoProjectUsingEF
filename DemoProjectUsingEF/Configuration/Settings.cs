@@ -5,7 +5,7 @@ namespace BluePrism.Tests.Configuration.Configuration
 {
     public class Settings : ISettings
     {
-        public string HubApplicationUrl { get; set; }
+        public string ApplicationUrl { get; set; }
         public string ImsApplicationUrl { get; set; }
         public bool HeadlessMode { get; set; }
         public string Browser { get; set; }

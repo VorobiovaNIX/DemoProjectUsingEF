@@ -26,5 +26,11 @@ namespace DemoProjectUsingEF.Steps.DBSteps
             _dbContext.SaveChanges();
         }
 
+        [Given(@"I clean up the Users table in the local DB")]
+        public void GivenICleanUpTheUsersTableInTheLocalDB()
+        {
+            CleanUp.Clean(_dbContext);
+        }
+
     }
 }

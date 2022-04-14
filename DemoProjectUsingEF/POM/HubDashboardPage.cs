@@ -19,7 +19,7 @@ namespace DemoProjectUsingEF.POM
         private WaitHelper _waitHelper;
 
 
-        readonly string HubUrl = ConfigurationLoader.Settings.HubApplicationUrl;
+        readonly string HubUrl = ConfigurationLoader.Settings.ApplicationUrl;
         private readonly string onPageTitle = "//main//h1";
         private readonly string logOut = "//a[@href='#/account/logout']";
         private string CloseDrawer = $"//div[@data-testid='add-widgets-drawer']//button[contains(., 'Close drawer')]";
@@ -60,11 +60,11 @@ namespace DemoProjectUsingEF.POM
             return this;
         }
 
-        public HubDashboardPage GetHubPageTitle()
-        {
-            _hubContext.StoreTextValue(_hubDashboardMap.GetText(onPageTitle), "DashboardTitle");
-            return this;
-        }
+        //public HubDashboardPage GetHubPageTitle()
+        //{
+        //    _hubContext.StoreTextValue(_hubDashboardMap.GetText(onPageTitle), "DashboardTitle");
+        //    return this;
+        //}
 
         public HubDashboardPage ClickLogOutButton()
         {

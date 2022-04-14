@@ -31,8 +31,8 @@ namespace DemoProjectUsingEF.Steps.Hub
                 .SendTextToPasswordInput(validPassword)
                 .ClickLogIn()
                 .GoToHub();
-            _hubDashboardPage
-                .GetHubPageTitle();
+            //_hubDashboardPage
+            //    .GetHubPageTitle();
         }
 
         [Then(@"I am logged into HUB as '(.*)' login and '(.*)' password")]
@@ -45,8 +45,8 @@ namespace DemoProjectUsingEF.Steps.Hub
                 .SendTextToPasswordInput(password)
                 .ClickLogIn()
                 .GoToHub();
-            _hubDashboardPage
-                .GetHubPageTitle();
+            //_hubDashboardPage
+            //    .GetHubPageTitle();
         }
 
         [When(@"I log out")]

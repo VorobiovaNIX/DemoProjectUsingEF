@@ -165,5 +165,9 @@ namespace DemoProjectUsingEF.Helpers
             jsDriver.ExecuteScript("arguments[0].click();", element);
         }
 
+        public void Refresh()
+        {
+            _webDriver.Navigate().Refresh();
+        }
     }
 }

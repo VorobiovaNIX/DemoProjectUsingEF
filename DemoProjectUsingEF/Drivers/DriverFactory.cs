@@ -59,7 +59,7 @@ namespace DemoProjectUsingEF.Drivers
         private IWebDriver RemoteWebDriverBuilder(DriverOptions options)
         {
             var settings = ConfigurationLoader.Settings;
-            string hub = settings.HubApplicationUrl;
+            string hub = settings.ApplicationUrl;
             _driver = new RemoteWebDriver(new Uri(hub), options);
             _driver.Manage().Window.Maximize();
             return _driver;
